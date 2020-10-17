@@ -2,6 +2,7 @@
 
 Got fed up with various ROM execution methods for different console emulators. So I wrote a work around that uses WSL to nicely generate and run a windows shortcut for a chosen ROM and emulator. The program uses the python3 package `readline` to allow user ease for WSL terminal selection of console and game.
 
+##Example of use:
 ```bash
 Foo@Bar:Emulation_Station$ python3 emulation_station.py
 
@@ -30,8 +31,8 @@ Tony Hawk's American Wasteland
  - Tony Hawk's American Wasteland.ISO
  ```
 
-The program will make and execute a file called `rom_execution.bat` which contains:
-ergreg
+The program will make and execute a file called `rom_execution.bat` which contains the following:
+
  ```bash
 "path to...\PS2\PCSX2 1.6.0\pcsx2.exe"  "path to...\ROM's\Playstation 2\Tony Hawk's American Wasteland\Tony Hawk's American Wasteland.ISO"
 /mnt/c/Windows/explorer.exe rom_execution.bat
