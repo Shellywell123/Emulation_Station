@@ -1,0 +1,1 @@
+"C:\Users\benja\Documents\Entertainment\Gaming\Launchers\PS2\PCSX2 1.6.0\pcsx2.exe"  "C:\Users\benja\Documents\Entertainment\Gaming\ROM's\Playstation 2\Tony Hawk's American Wasteland (Europe)\Tony Hawk's American Wasteland (Europe).iso"
