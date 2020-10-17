@@ -1,6 +1,6 @@
 # Emulation Station
 
-Got fed up with various ROM exection methods for different console emulators. So I wrote a work around that uses WSL to nicely generate and run a windows shortcut for a chosen ROM and emulator. The program uses the python3 package `readline` to allow user ease for WSL terminal selection of console and game.
+Got fed up with various ROM execution methods for different console emulators. So I wrote a work around that uses WSL to nicely generate and run a windows shortcut for a chosen ROM and emulator. The program uses the python3 package `readline` to allow user ease for WSL terminal selection of console and game.
 
 ```bash
 Foo@Bar:Emulation_Station$ python3 emulation_station.py
@@ -25,9 +25,9 @@ Games in your Playstation 2 library:
  - Tony Hawk's Underground
 
 Input the game you want to play:
-Tony Hawk's American Wasteland (Europe)
+Tony Hawk's American Wasteland
 
- - Tony Hawk's American Wasteland (Europe).iso
+ - Tony Hawk's American Wasteland.ISO
  ```
 
 The program will make and execute a file called `rom_execution.bat` which contains:
