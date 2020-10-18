@@ -1,7 +1,7 @@
 # Emulation Station
 
 Got fed up with various ROM execution methods for different console emulators. So I wrote a work around that uses WSL to nicely generate and run a windows shortcut for a chosen ROM and emulator. The program uses the python3 package `readline` to allow user ease for WSL terminal selection of console and game. To use you will need WSL and to change all the paths to be for your machine.
-##Example of use:
+## Example of use:
 ```bash
 Foo@Bar:Emulation_Station$ python3 emulation_station.py
 

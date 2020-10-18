@@ -6,13 +6,13 @@ from colours import *
 
 ##############################################################
 
-path_to_ROMS       = "/mnt/c/Users/benja/Documents/Entertainment/Gaming/ROM's"
+path_to_ROMS       = "/mnt/c/Users/benja/Documents/Entertainment/Gaming/ROMs"
 path_to_emulators  = '/mnt/c/Users/benja/Documents/Entertainment/Gaming/Launchers'
 
 #needed to launch windows shortcut
 win_exe = "/mnt/c/Windows/explorer.exe"
 
-win_path_to_ROMS       = "C:\\Users\\benja\\Documents\\Entertainment\\Gaming\\ROM's"
+win_path_to_ROMS       = "C:\\Users\\benja\\Documents\\Entertainment\\Gaming\\ROMs"
 win_path_to_emulators  = "C:\\Users\\benja\\Documents\\Entertainment\\Gaming\\Launchers"
 
 ##############################################################
@@ -36,7 +36,7 @@ def set_tab_complete_options(options):
 
 def find_rom_in_dir(path_to_dir):
     """
-    shows the user the directories within the supplied directory
+    prints & returns the roms within the supplied directory
     """
     repo_list = []
     rom_exts = ['.nds','.gba','.wbfs','.iso','.ISO','.wux','.bin']
@@ -50,7 +50,7 @@ def find_rom_in_dir(path_to_dir):
 
 def print_dirs_in_dir(path_to_dir):
     """
-    shows the user the directories within the supplied directory
+    prints & returns the directories within the supplied directory
     """
     repo_list = []
     for d in os.listdir(path_to_dir) :
@@ -62,6 +62,7 @@ def print_dirs_in_dir(path_to_dir):
 
 def select_emulator(console):
     """
+    returns the associated emulator path for  given console
     """
     if console == 'Nintendo DS':
         pass
@@ -92,6 +93,7 @@ def select_emulator(console):
 
 def choose_console():
     """
+    allows user to pick a console/ dir name
     """
     print('\nConsoles in your library:')
     choice_list = print_dirs_in_dir(path_to_ROMS)
@@ -107,9 +109,12 @@ def choose_console():
         return console
     else:
         print('not a valid input')
+        choose_console()
 
 def choose_game(console):
     """
+    ask user to choose the game a preivoulst chosen console
+    ,will return path to that rom
     """
     print('\nGames in your {} library:'.format(console))
     choice_list = print_dirs_in_dir(path_to_ROMS+"/"+console)
@@ -129,9 +134,12 @@ def choose_game(console):
         return game
     else:
         print('not a valid input')
+        choose_game()
 
 def execute_game(emulator,flags,game):
     """
+    will generate a windows batch file containing the paths for the emulator
+    and rom with the correct emulator flags
     """
 
     emulator = PureWindowsPath(Path(emulator))
