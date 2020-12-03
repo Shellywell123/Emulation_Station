@@ -32,6 +32,11 @@ Tony Hawk's American Wasteland
 
 The program will make and execute a file called `rom_execution.bat` which contains the following:
 
- ```bash
+```bash
 "path to...\PS2\PCSX2 1.6.0\pcsx2.exe"  "path to...\ROM's\Playstation 2\Tony Hawk's American Wasteland\Tony Hawk's American Wasteland.ISO"
 ```
+
+
+### Future goals
+ - include desktop shortcut with icons generator
+ - gui interface with controller interaction

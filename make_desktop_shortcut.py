@@ -152,9 +152,9 @@ def make_shortcut(emulator,flags,game,shortcut_name):
     f.write(fcontents)
     f.close()
 
-    ostr = "{} rom_execution.bat".format(win_exe)
-    print(ostr)
-    os.system(ostr)
+    # ostr = "{} rom_execution.bat".format(win_exe)
+    # print(ostr)
+    # os.system(ostr)
 
 def main_menu():
     """
