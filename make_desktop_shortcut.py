@@ -126,17 +126,18 @@ def choose_game(console):
         exit(0)
 
     if choice in choice_list:
+        game_name = choice.split('.')[0]
         if console == "Playstation 3":
             rom = "PS3_GAME\\USRDIR\\EBOOT.BIN"
         else:
             rom = find_rom_in_dir(path_to_ROMS+"/"+console+"/"+choice)[0]
         game = win_path_to_ROMS+"\\"+console+"\\"+choice + "\\" +rom
-        return game
+        return game,game_name
     else:
         print('not a valid input')
         choose_game()
 
-def execute_game(emulator,flags,game):
+def make_shortcut(emulator,flags,game,shortcut_name):
     """
     will generate a windows batch file containing the paths for the emulator
     and rom with the correct emulator flags
@@ -147,7 +148,7 @@ def execute_game(emulator,flags,game):
 
     fcontents = '"{}" {} "{}"'.format(emulator,flags,game)
     print(fcontents)
-    f = open("rom_execution.bat", "w")
+    f = open("/mnt/c/Users/benja/Desktop/{}.bat".format(shortcut_name), "w")
     f.write(fcontents)
     f.close()
 
@@ -162,10 +163,10 @@ def main_menu():
     print('\nEmulation Station options:')
 
     console        = choose_console()
-    game           = choose_game(console)
+    game,game_name = choose_game(console)
     emulator,flags = select_emulator(console)
 
-    execute_game(emulator,flags,game)
+    make_shortcut(emulator,flags,game,game_name)
     exit(0)
     
 main_menu()
