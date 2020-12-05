@@ -58,12 +58,6 @@ Playstation 3
 
 
 Games in your Playstation 3 library:
- - Call_of_Duty_World_at_War
- - DLCs and Extras
- - Call of Duty Modern Warfare 3
- - MotorStorm
- - Call of Duty Black Ops
- - Far Cry 2
  - Skate
  - Skate 2
  - Skate 3
