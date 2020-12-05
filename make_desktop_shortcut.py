@@ -7,6 +7,7 @@ from colours import *
 ##############################################################
 
 path_to_ROMS       = "/media/E_USB/ROMs"
+path_to_ICOS   = "/media/E_USB/ROM_ICOs"
 path_to_emulators  = '/mnt/c/Users/benja/Documents/Entertainment/Gaming/Launchers'
 
 #needed to launch windows shortcut
@@ -151,11 +152,12 @@ def make_shortcut(emulator,flags,game,shortcut_name):
   #  command  = '"{}" {} "{}"'.format(emulator,flags,game)
     desktop  = win_path_to_desktops + '\\' + shortcut_name+'.lnk'
 
+    ico_check = path_to_ICOS +'/'+ shortcut_name+'.ico'
 
-    ico_name = win_path_to_ICOS +'\\'+ shortcut_name +'.ico'
-
-    if not os.path.exists(ico_name):
+    if not os.path.exists(ico_check):
         ico_name = win_path_to_ICOS +'\\es_not_found.ico'
+    else:
+        ico_name = win_path_to_ICOS +'\\'+ shortcut_name +'.ico'
 
     fcontents = '$WScriptShell = New-Object -ComObject WScript.Shell;$Shortcut = $WScriptShell.CreateShortcut("{}");$Shortcut.TargetPath = \'"{}"\';$ShortCut.Arguments=\'{} "{}"\';$shortcut.IconLocation=\"{}\";$Shortcut.Save()'.format(desktop,emulator,flags,game,ico_name)
     print(fcontents)
