@@ -12,7 +12,9 @@ path_to_emulators  = '/mnt/c/Users/benja/Documents/Entertainment/Gaming/Launcher
 #needed to launch windows shortcut
 win_exe = "/mnt/c/Windows/explorer.exe"
 
+win_path_to_desktops   = "C:\\Users\\benja\\Desktop"
 win_path_to_ROMS       = "E:\\ROMs"
+win_path_to_ICOS       = "E:\\ROM_ICOs"
 win_path_to_emulators  = "C:\\Users\\benja\\Documents\\Entertainment\\Gaming\\Launchers"
 
 ##############################################################
@@ -146,15 +148,24 @@ def make_shortcut(emulator,flags,game,shortcut_name):
     emulator = PureWindowsPath(Path(emulator))
     game = PureWindowsPath(Path(game))
 
-    fcontents = '"{}" {} "{}"'.format(emulator,flags,game)
+  #  command  = '"{}" {} "{}"'.format(emulator,flags,game)
+    desktop  = win_path_to_desktops + '\\' + shortcut_name+'.lnk'
+
+
+    ico_name = win_path_to_ICOS +'\\'+ shortcut_name +'.ico'
+
+    if not os.path.exists(ico_name):
+        ico_name = win_path_to_ICOS +'\\es_not_found.ico'
+
+    fcontents = '$WScriptShell = New-Object -ComObject WScript.Shell;$Shortcut = $WScriptShell.CreateShortcut("{}");$Shortcut.TargetPath = \'"{}"\';$ShortCut.Arguments=\'{} "{}"\';$shortcut.IconLocation=\"{}\";$Shortcut.Save()'.format(desktop,emulator,flags,game,ico_name)
     print(fcontents)
-    f = open("/mnt/c/Users/benja/Desktop/{}.bat".format(shortcut_name), "w")
+    f = open("make_shortcut.ps1".format(shortcut_name), "w")
     f.write(fcontents)
     f.close()
 
-    # ostr = "{} rom_execution.bat".format(win_exe)
-    # print(ostr)
-    # os.system(ostr)
+    ostr = "powershell.exe -ExecutionPolicy Bypass -File make_shortcut.ps1".format(win_exe)
+    print(ostr)
+    os.system(ostr)
 
 def main_menu():
     """
