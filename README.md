@@ -37,9 +37,49 @@ The program will make and execute a file called `rom_execution.bat` which contai
 ```
 
 
-### Future goals
- - include desktop shortcut with icons generator
- - gui interface with controller interaction
+### make desktop shortcuts
+```bash
+Foo@Bar:Emulation_Station$ python3 make_desktop_shortcut.py
 
-## things that need fixing
-tony hawk's appostropy problem
+Emulation Station options:
+
+Consoles in your library:
+ - Nintendo DS
+ - Nintendo GBA
+ - Nintendo Wii
+ - Nintendo Wii U
+ - Playstation
+ - Playstation 2
+ - Playstation 3
+
+Input Console you want to play:
+Playstation 3
+
+
+Games in your Playstation 3 library:
+ - Call_of_Duty_World_at_War
+ - DLCs and Extras
+ - Call of Duty Modern Warfare 3
+ - MotorStorm
+ - Call of Duty Black Ops
+ - Far Cry 2
+ - Skate
+ - Skate 2
+ - Skate 3
+
+Input the game you want to play:
+Skate 3
+
+$WScriptShell = New-Object -ComObject WScript.Shell;$Shortcut = $WScriptShell.CreateShortcut("C:\Users\benja\Desktop\Skate 3.lnk");$Shortcut.TargetPath = '"C:\Users\benja\Documents\Entertainment\Gaming\Launchers\PS3\rpcs3.exe"';$ShortCut.Arguments=' "E:\ROMs\Playstation 3\Skate 3\PS3_GAME\USRDIR\EBOOT.BIN"';$shortcut.IconLocation="E:\ROM_ICOs\Skate 3.ico";$Shortcut.Save()
+powershell.exe -ExecutionPolicy Bypass -File make_shortcut.ps1
+```
+
+
+The program will make and execute a file called `make_shortcut.ps1` which contains the following:
+
+```bash
+$WScriptShell = New-Object -ComObject WScript.Shell;$Shortcut = $WScriptShell.CreateShortcut("C:\Users\benja\Desktop\Skate 3.lnk");$Shortcut.TargetPath = '"C:\Users\benja\Documents\Entertainment\Gaming\Launchers\PS3\rpcs3.exe"';$ShortCut.Arguments=' "E:\ROMs\Playstation 3\Skate 3\PS3_GAME\USRDIR\EBOOT.BIN"';$shortcut.IconLocation="E:\ROM_ICOs\Skate 3.ico";$Shortcut.Save()```
+```
+
+### Future goals
+ - gui xmb interface with controller interaction
