@@ -140,14 +140,14 @@ def choose_game(console):
         print('not a valid input')
         choose_game()
 
-def make_shortcut(emulator,flags,game,shortcut_name):
+def make_shortcut(emulator,flags,rom,shortcut_name):
     """
     will generate a windows batch file containing the paths for the emulator
     and rom with the correct emulator flags
     """
 
     emulator = PureWindowsPath(Path(emulator))
-    game = PureWindowsPath(Path(game))
+    rom = PureWindowsPath(Path(rom.replace("'","`")))
 
   #  command  = '"{}" {} "{}"'.format(emulator,flags,game)
     desktop  = win_path_to_desktops + '\\' + shortcut_name+'.lnk'
@@ -159,7 +159,9 @@ def make_shortcut(emulator,flags,game,shortcut_name):
     else:
         ico_name = win_path_to_ICOS +'\\'+ shortcut_name +'.ico'
 
-    fcontents = '$WScriptShell = New-Object -ComObject WScript.Shell;$Shortcut = $WScriptShell.CreateShortcut("{}");$Shortcut.TargetPath = \'"{}"\';$ShortCut.Arguments=\'{} "{}"\';$shortcut.IconLocation=\"{}\";$Shortcut.Save()'.format(desktop,emulator,flags,game,ico_name)
+    ico_name = PureWindowsPath(Path(ico_name))
+
+    fcontents = '$WScriptShell = New-Object -ComObject WScript.Shell;$Shortcut = $WScriptShell.CreateShortcut("{}");$Shortcut.TargetPath = \'"{}"\';$ShortCut.Arguments=\'{} "{}"\';$shortcut.IconLocation=\"{}\";$Shortcut.Save()'.format(desktop,emulator,flags,rom,ico_name)
     print(fcontents)
     f = open("make_shortcut.ps1".format(shortcut_name), "w")
     f.write(fcontents)
@@ -183,3 +185,18 @@ def main_menu():
     exit(0)
     
 main_menu()
+
+def make_shortcuts_from_list():
+    """
+    """
+    shortcuts = [
+                {'emulator':'',
+                 'rom' : '',
+                 'ico' : ''}]
+
+    for shortcut in shortcuts:
+        console  = shortcut['console']
+        rom      = shortcut['rom']
+        ico      = shortcut['ico']
+
+        make_shortcut(emulator,flags,game,game_name)

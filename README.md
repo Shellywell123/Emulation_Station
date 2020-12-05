@@ -40,3 +40,6 @@ The program will make and execute a file called `rom_execution.bat` which contai
 ### Future goals
  - include desktop shortcut with icons generator
  - gui interface with controller interaction
+
+## things that need fixing
+tony hawk's appostropy problem
