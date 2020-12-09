@@ -1,1 +1,1 @@
-"C:\Users\benja\Documents\Entertainment\Gaming\Launchers\PS2\PCSX2 1.6.0\pcsx2.exe"  "E:\ROMs\Playstation 2\The Weakest Link\THE_WEAKEST_LINK.ISO"
+"C:\Users\benja\Documents\Entertainment\Gaming\Launchers\PS2\PCSX2 1.6.0\pcsx2.exe"  "E:\ROMs\Playstation 2\Taito Legends\Taito Legends.bin"

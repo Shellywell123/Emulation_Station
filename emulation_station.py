@@ -7,13 +7,13 @@ from colours import *
 ##############################################################
 
 path_to_ROMS       = "/media/E_USB/ROMs"
-path_to_emulators  = '/mnt/c/Users/benja/Documents/Entertainment/Gaming/Launchers'
+path_to_emulators  = '/mnt/c/Users/LaunchBox/Emulators'
 
 #needed to launch windows shortcut
 win_exe = "/mnt/c/Windows/explorer.exe"
 
 win_path_to_ROMS       = "E:\\ROMs"
-win_path_to_emulators  = "C:\\Users\\benja\\Documents\\Entertainment\\Gaming\\Launchers"
+win_path_to_emulators  = "C:\\Users\\benja\\LaunchBox\\Emulators"
 
 ##############################################################
 
